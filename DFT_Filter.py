@@ -55,7 +55,7 @@ st.sidebar.markdown(" **_Asif M.S._** ")
 st.sidebar.markdown(" **_121901007_**")
 
 option = st.selectbox(
-     'Please Choose the ECG Signal ?',
+     'Please Choose the ECG Signal :',
      ('ecg_rand_signal_fs_360_10seconds','ecg_with_powerline_fs_360_10seconds_p05 - Copy'))
 
 
