@@ -7,7 +7,7 @@ import pylops
 def W(k,N): #Twiddle factor raised to k required for computing FFT ( Fast Fourier Transform )
     return complex(np.cos((-2*np.pi/N)*k), np.sin((-2*np.pi/N)*k))
 
-def W_neg_pow(k,N): #Twiddle factor raised to -k required for computing IFFT ( Inverse Fourier Transform )
+def W_neg_pow(k,N): #Twiddle factor raised to -k required for computing IFFT ( Inverse Fast Fourier Transform )
     return complex(np.cos((2 * np.pi / N) * k ), np.sin((2 * np.pi / N) * k ))
 
 def fft_implement(x): #This function computes the Fast Fourier Transform ( FFT ) of a sequence x. It follows radix 2 algorithm .Hence x should be padded with necessary zeroes to make its length a multiple of 2
