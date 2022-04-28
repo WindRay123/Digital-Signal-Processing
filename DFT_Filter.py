@@ -110,7 +110,7 @@ f_c = st.sidebar.slider('Cut off frequency ', min_value=1, max_value=100, value=
 
 x_freq = np.array(x_freq)
 pos = np.where((x_freq)>=(f_c)) #This condition checks for frequencies above the cut off and stores those indices inside pos variable
-P1[pos] = 0  #All the DFT co-efficients in the indices inside pos variable is made zero.
+P1[pos] = 0  #All the DFT co-efficients in the indices inside pos variable are made zero.
 
 fig3 = plt.figure()
 plt.plot(x_freq,P1)
@@ -120,8 +120,6 @@ plt.ylabel("Amplitude")
 st.pyplot(fig3)
 
 #To recreate the double sided spectrum so that idft can be taken
-#sf = P1
-l = 2*len(P1)-1
 n = len(P1)
 r1 = P1
 r1[1:] = r1[1:]/2 #Earlier we multiplied by 2 to get the single sided spectrum . Here we are dividing by 2 as a step to recreating the double sided spectrum back
