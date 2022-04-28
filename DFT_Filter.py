@@ -36,7 +36,7 @@ def ifft_implement_1(X):
         x[i + int(N / 2)] = f1_[i] - W_neg_pow(i, N) * f2_[i]
     return x #Here, it is not divided by the sequence length , hence the computation of ifft is not complete here
 
-def ifft_implement(X):#Function to divide the output of the previous function to make the computation of ifft complete
+def ifft_implement(X):#Function to divide the output of the previous function by sequence length to make the computation of ifft complete
     N = len(X)
     x = [i/N for i in ifft_implement_1(X)]
     return x
