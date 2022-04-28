@@ -28,8 +28,8 @@ def ifft_implement_1(X):
     N = len(X)
     if N == 1:  # If the number of elements in the sequence is 1 , then the element itself is its ifft
         return X
-    f1_ = ifft_implement(X[0:N + 1:2]) #even sequence ifft
-    f2_ = ifft_implement(X[1:N + 1:2]) #odd sequence ifft
+    f1_ = ifft_implement_1(X[0:N + 1:2]) #even sequence ifft
+    f2_ = ifft_implement_1(X[1:N + 1:2]) #odd sequence ifft
     x = [0] * N
     for i in range(int(N / 2)):
         x[i] = f1_[i] + W_neg_pow(i, N) * f2_[i] #butterfly operation
