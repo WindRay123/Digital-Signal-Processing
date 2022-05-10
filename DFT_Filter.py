@@ -11,7 +11,7 @@ def W_neg_pow(k,N): #Twiddle factor raised to -k required for computing IFFT ( I
     return complex(np.cos((2 * np.pi / N) * k ), np.sin((2 * np.pi / N) * k ))
 
 def fft_implement(x): #This function computes the Fast Fourier Transform ( FFT ) of a sequence x. It follows radix 2 algorithm .Hence x should be padded with necessary zeroes to make its length a multiple of 2
-    N = len(x)
+    N = len(x)         #Modified version of https://gist.github.com/bistaumanga/5682774
     if N==1: #If the number of elements in the sequence is 1 , then the element itself is its fft
         return x
     # Recursive implementation
@@ -24,8 +24,8 @@ def fft_implement(x): #This function computes the Fast Fourier Transform ( FFT )
     return X
 
 
-def ifft_implement_1(X):
-    N = len(X)
+def ifft_implement_1(X): #Modified version of https://gist.github.com/bistaumanga/5682774
+    N = len(X) 
     if N == 1:  # If the number of elements in the sequence is 1 , then the element itself is its ifft
         return X
     f1_ = ifft_implement_1(X[0:N + 1:2]) #even sequence ifft
@@ -41,14 +41,15 @@ def ifft_implement(X):#Function to divide the output of the previous function by
     x = [i/N for i in ifft_implement_1(X)]
     return x
 
-def round_to_power_2(x):#THis function finds the next power of 2 . This is useful for padding the input sequence with zeroes until its length is a power of 2 .
+def round_to_power_2(x): #Code from https://www.techiedelight.com/round-next-highest-power-2/
+    #THis function finds the next power of 2 . This is useful for padding the input sequence with zeroes until its length is a power of 2 .
     x = x - 1
     while x & x - 1: #The number x in binary form and (x-1) in binary form are multiplied in binary with each right bit turning zero at each iteration
         x = x & x - 1  #At last , x will be of the form 10,100,100,1000 (in binary) but it will be less than the original number
     return x << 1 #Then it is multiplied by 2 to get the next highest multiple of 2 (left shifting by 1 bit in binary is equivalent to multuplication by 2 )
 
 # %% User Inputs
-st.markdown("<h1 style='text-align: center; color: black;'>DFT Filtering of an ECG Signal : Design DFT Filtering for removing high frequency components having frequency above 30 Hz . Assume ECG signal with a sampling rate of 360 Hz</h1>",
+st.markdown("<h1 style='text-align: center; color: black;'>DFT Filtering of an ECG Signal :  DFT based Filtering for removing high frequency components having frequency above 30 Hz . Assume ECG signal with a sampling rate of 360 Hz</h1>",
             unsafe_allow_html=True)
 st.sidebar.markdown("Submitted By : ")
 st.sidebar.markdown(" **_Asif M.S._** ")
@@ -56,7 +57,7 @@ st.sidebar.markdown(" **_121901007_**")
 
 option = st.selectbox(
      'Please Choose the ECG Signal :',
-     ('ecg_rand_signal_fs_360_10seconds','ecg_with_powerline_fs_360_10seconds_p05 - Copy'))
+     ('ecg_rand_signal_fs_360_10seconds','ecg_with_powerline_fs_360_10seconds'))
 
 
 #Importing the ECG signal from the MATLAB data file
