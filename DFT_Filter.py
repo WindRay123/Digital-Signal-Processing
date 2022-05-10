@@ -54,6 +54,10 @@ st.markdown("<h1 style='text-align: center; color: black;'>DFT Filtering of an E
 st.sidebar.markdown("Submitted By : ")
 st.sidebar.markdown(" **_Asif M.S._** ")
 st.sidebar.markdown(" **_121901007_**")
+st.sidebar.markdown("Under the Supervision of : ")
+st.sidebar.markdown(" **Dr. M. Sabarimalai Manikandan** ")
+st.sidebar.markdown(" **IIT Palakkad**")
+
 
 option = st.selectbox(
      'Please Choose the ECG Signal :',
