@@ -63,7 +63,7 @@ option = st.selectbox(
 #Importing the ECG signal from the MATLAB data file
 if option=='ecg_rand_signal_fs_360_10seconds':
     ecg = spio.loadmat(option)['ecg_rang_signal'][0]
-if option=='ecg_with_powerline_fs_360_10seconds_p05 - Copy':
+if option=='ecg_with_powerline_fs_360_10seconds':
     ecg = spio.loadmat(option)['ecg_01'][0]
 
 #To plot the available ECG data
